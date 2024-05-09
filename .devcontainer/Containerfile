@@ -1,0 +1,23 @@
+FROM mcr.microsoft.com/devcontainers/java:dev-21-bullseye
+
+ARG NODE_VERSION=lts
+ARG MAVEN_MAJOR_VERION=3
+ARG MAVEN_VERSION=3.9.6
+
+RUN apt-get -y update
+RUN apt-get -y install curl ca-certificates zip unzip
+RUN apt-get -y upgrade --no-install-recommends
+RUN apt-get autoremove -y
+RUN rm -rf /var/lib/apt-lists/*
+
+RUN curl -fsSL https://raw.githubusercontent.com/tj/n/master/bin/n | bash -s $NODE_VERSION
+RUN npm install -g npm n
+
+RUN curl -fsSL https://dlcdn.apache.org/maven/maven-${MAVEN_MAJOR_VERION}/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz | tar xz -C /opt/
+
+ADD standby.sh /standby.sh
+RUN chmod +x /standby.sh
+
+USER vscode
+ENV PATH=${PATH}:/opt/apache-maven-${MAVEN_VERSION}/bin
+VOLUME /workspaces

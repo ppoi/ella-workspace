@@ -1,0 +1,15 @@
+name: ella
+services:
+  workspace:
+    build:
+      dockerfile: Containerfile
+    volumes:
+      - workspaces:/workspaces
+      - ../:/workspaces/devenv
+      - devcerts-volume:/certs
+      - /run/podman/podman.sock:/var/run/docker.sock
+    command: /standby.sh
+volumes:
+  workspaces:
+  devcerts-volume:
+    external: true

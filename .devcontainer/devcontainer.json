@@ -1,0 +1,20 @@
+{
+  "name": "ella",
+  "dockerComposeFile": "./compose.yml",
+  "service": "workspace",
+  "workspaceFolder": "/workspaces",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "svelte.svelte-vscode",
+        "antfu.vite",
+        "redhat.vscode-yaml",
+        "redhat.vscode-quarkus",
+        "vscjava.vscode-maven"
+      ],
+      "settings": {
+        "git.defaultCloneDirectory": "/workspaces"
+      }
+    }
+  }
+}
