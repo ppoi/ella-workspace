@@ -1,14 +1,13 @@
 name: ella
 services:
   workspace:
-    build:
-      dockerfile: Containerfile
+    image: gcr.io/ppoi/devenv-type-a-base:20240511-01
     volumes:
       - workspaces:/workspaces
       - ../:/workspaces/devenv
       - devcerts-volume:/certs
       - /run/podman/podman.sock:/var/run/docker.sock
-    command: /standby.sh
+    command: /opt/setup-tools/code-workspace.sh ella
 volumes:
   workspaces:
   devcerts-volume:
