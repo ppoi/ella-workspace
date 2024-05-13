@@ -9,6 +9,7 @@
         "svelte.svelte-vscode",
         "antfu.vite",
         "redhat.vscode-yaml",
+        "vscjava.vscode-java-pack",
         "redhat.vscode-quarkus",
         "vscjava.vscode-maven"
       ],

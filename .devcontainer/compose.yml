@@ -1,7 +1,7 @@
 name: ella
 services:
   workspace:
-    image: gcr.io/ppoi/devenv-type-a-base:20240511-01
+    image: ghcr.io/ppoi/devenv-type-charlie:20240513-01
     volumes:
       - workspaces:/workspaces
       - ../:/workspaces/devenv
