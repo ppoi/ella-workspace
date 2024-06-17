@@ -1,8 +1,10 @@
 {
   "name": "ella",
-  "dockerComposeFile": "./compose.yml",
-  "service": "workspace",
-  "workspaceFolder": "/workspaces",
+  "image": "ghcr.io/ppoi/devcontainer-images/type-charlie:20240614-01",
+  "capAdd": ["AUDIT_WRITE", "NET_RAW"],
+  "mounts": [
+    {"source": "/run/podman/podman.sock", "target": "/var/run/docker.sock", "type": "bind"}
+  ],
   "customizations": {
     "vscode": {
       "extensions": [
@@ -17,5 +19,8 @@
         "git.defaultCloneDirectory": "/workspaces"
       }
     }
+  },
+  "postCreateCommand": {
+    "dood": "sudo chgrp docker /var/run/docker.sock"
   }
 }
