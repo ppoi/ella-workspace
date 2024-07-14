@@ -1,9 +1,9 @@
 {
   "name": "ella",
-  "image": "ghcr.io/ppoi/devcontainer-images/type-charlie:20240614-01",
+  "image": "ghcr.io/ppoi/devcontainer-images/type-charlie:latest",
   "capAdd": ["AUDIT_WRITE", "NET_RAW"],
   "mounts": [
-    {"source": "/run/podman/podman.sock", "target": "/var/run/docker.sock", "type": "bind"}
+    {"source": "/var/run/docker.sock", "target": "/var/run/docker.sock", "type": "bind"}
   ],
   "customizations": {
     "vscode": {
